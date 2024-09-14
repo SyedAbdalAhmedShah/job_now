@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_now/view/home-Page.dart';
 import 'package:job_now/view/onbarding/onbarding-page.dart';
+import 'package:sizer/sizer.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,10 +14,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'JobNow',
-      theme: ThemeData(useMaterial3: true, textTheme: GoogleFonts.averiaLibreTextTheme()),
-      home: const OnBoardingPage(),
-    );
+    return ResponsiveSizer(builder: (p0, p1, p2) {
+      return MaterialApp(
+        title: 'JobNow',
+        theme: ThemeData(useMaterial3: true, textTheme: GoogleFonts.averiaLibreTextTheme()),
+        home: const OnBoardingPage(),
+      );
+    });
   }
 }
