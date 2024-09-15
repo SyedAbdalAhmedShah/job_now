@@ -20,7 +20,9 @@ class OnBoardingPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              Gap(3.h),
               const JobNowText(),
+              Gap(5.h),
               const Image(
                 image: AssetImage("assets/images/job1.png"),
               ),
@@ -33,7 +35,12 @@ class OnBoardingPage extends StatelessWidget {
               const Companies1(),
               Gap(1.h),
               const Companies2(),
-              const PrimaryButton()
+              const Spacer(),
+              Padding(
+                padding: EdgeInsets.only(right: 6.0.w),
+                child: const Align(alignment: Alignment.centerRight, child: PrimaryButton()),
+              ),
+              Gap(1.h),
             ],
           ),
         ),
