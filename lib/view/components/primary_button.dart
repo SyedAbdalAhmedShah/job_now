@@ -7,7 +7,8 @@ import 'package:sizer/sizer.dart';
 
 class PrimaryButton extends StatelessWidget {
   final double? width;
-  const PrimaryButton({this.width, super.key});
+  final String text;
+  const PrimaryButton({this.width, required this.text, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,12 +18,12 @@ class PrimaryButton extends StatelessWidget {
       },
       child: Container(
         padding: EdgeInsets.symmetric(vertical: 1.5.h),
-        width: width ?? 30.w,
+        width: width?.w ?? 30.w,
         alignment: Alignment.center,
         decoration: BoxDecoration(color: kPrimaryColor, borderRadius: BorderRadius.circular(2.w)),
-        child: const Text(
-          kNext,
-          style: TextStyle(color: kWhiteColor),
+        child: Text(
+          text,
+          style: const TextStyle(color: kWhiteColor),
         ),
       ),
     );

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:job_now/view/home-Page.dart';
 import 'package:job_now/view/onbarding/onbarding-page.dart';
+import 'package:job_now/view/onbarding/second_onbarding_page.dart';
+import 'package:job_now/view/onbarding/third_onbarding_page.dart';
 import 'package:sizer/sizer.dart';
 
 void main() {
@@ -18,7 +20,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         title: 'JobNow',
         theme: ThemeData(useMaterial3: true, textTheme: GoogleFonts.averiaLibreTextTheme(), scaffoldBackgroundColor: Colors.white),
-        home: const OnBoardingPage(),
+        home: const ThirdOnbardingPage(),
       );
     });
   }

@@ -24,7 +24,7 @@ class OnBoardingPage extends StatelessWidget {
               const JobNowText(),
               Gap(5.h),
               const Image(
-                image: AssetImage("assets/images/job1.png"),
+                image: AssetImage(kIntroJob1Image),
               ),
               Text(
                 kFindJob,
@@ -38,7 +38,7 @@ class OnBoardingPage extends StatelessWidget {
               const Spacer(),
               Padding(
                 padding: EdgeInsets.only(right: 6.0.w),
-                child: const Align(alignment: Alignment.centerRight, child: PrimaryButton()),
+                child: const Align(alignment: Alignment.centerRight, child: PrimaryButton(text:kNext ,)),
               ),
               Gap(1.h),
             ],
