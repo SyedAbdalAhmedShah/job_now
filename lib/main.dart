@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
     return ResponsiveSizer(builder: (p0, p1, p2) {
       return MaterialApp(
         title: 'JobNow',
-        theme: ThemeData(useMaterial3: true, textTheme: GoogleFonts.averiaLibreTextTheme()),
+        theme: ThemeData(useMaterial3: true, textTheme: GoogleFonts.averiaLibreTextTheme(), scaffoldBackgroundColor: Colors.white),
         home: const OnBoardingPage(),
       );
     });
