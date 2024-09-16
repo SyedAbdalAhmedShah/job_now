@@ -46,18 +46,22 @@ class _OnbardingPageState extends State<OnbardingPage> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              PrimaryButton(
-                text: kBack,
-                fontColor: kBlackColor,
-                bgColor: kLightGrey,
-                ontap: () {
-                  if (pageIndex <= 2 && pageIndex != 0) {
-                    setState(() {
-                      pageIndex = pageIndex - 1;
-                    });
-                    _controller.animateToPage(pageIndex, duration: Durations.medium4, curve: Curves.easeIn);
-                  }
-                },
+              AnimatedOpacity(
+                duration: Durations.medium4,
+                opacity: pageIndex == 0 ? 0 : 1,
+                child: PrimaryButton(
+                  text: kBack,
+                  fontColor: kBlackColor,
+                  bgColor: kLightGrey,
+                  ontap: () {
+                    if (pageIndex <= 2 && pageIndex != 0) {
+                      setState(() {
+                        pageIndex = pageIndex - 1;
+                      });
+                      _controller.animateToPage(pageIndex, duration: Durations.medium4, curve: Curves.easeIn);
+                    }
+                  },
+                ),
               ),
               PrimaryButton(
                 text: kNext,
