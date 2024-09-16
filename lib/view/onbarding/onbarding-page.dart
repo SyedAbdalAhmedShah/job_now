@@ -63,16 +63,33 @@ class _OnbardingPageState extends State<OnbardingPage> {
                   },
                 ),
               ),
-              PrimaryButton(
-                text: kNext,
-                ontap: () {
-                  if (pageIndex < 2) {
-                    setState(() {
-                      pageIndex = pageIndex + 1;
-                    });
-                    _controller.animateToPage(pageIndex, duration: Durations.medium4, curve: Curves.easeIn);
-                  }
-                },
+              AnimatedSwitcher(
+                duration: Durations.medium4,
+                child: pageIndex == 2
+                    ? PrimaryButton(
+                        text: ksignInUP,
+                        fontColor: kBlackColor,
+                        bgColor: kLightGrey,
+                        ontap: () {
+                          if (pageIndex <= 2 && pageIndex != 0) {
+                            setState(() {
+                              pageIndex = pageIndex - 1;
+                            });
+                            _controller.animateToPage(pageIndex, duration: Durations.medium4, curve: Curves.easeIn);
+                          }
+                        },
+                      )
+                    : PrimaryButton(
+                        text: kNext,
+                        ontap: () {
+                          if (pageIndex < 2) {
+                            setState(() {
+                              pageIndex = pageIndex + 1;
+                            });
+                            _controller.animateToPage(pageIndex, duration: Durations.medium4, curve: Curves.easeIn);
+                          }
+                        },
+                      ),
               ),
             ],
           ),
