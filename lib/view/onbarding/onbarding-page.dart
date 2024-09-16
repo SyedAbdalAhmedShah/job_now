@@ -5,45 +5,92 @@ import 'package:job_now/constants/app_strings.dart';
 import 'package:job_now/constants/colors.dart';
 import 'package:job_now/view/components/job_now_text.dart';
 import 'package:job_now/view/components/primary_button.dart';
+import 'package:job_now/view/onbarding/second_onbarding_page.dart';
+import 'package:job_now/view/onbarding/third_onbarding_page.dart';
 import 'package:sizer/sizer.dart';
 
-class OnBoardingPage extends StatelessWidget {
-  const OnBoardingPage({super.key});
+class OnbardingPage extends StatefulWidget {
+  const OnbardingPage({super.key});
+
+  @override
+  State<OnbardingPage> createState() => _OnbardingPageState();
+}
+
+class _OnbardingPageState extends State<OnbardingPage> {
+  late final PageController _controller;
+  int pageIndex = 0;
+
+  @override
+  void initState() {
+    _controller = PageController(initialPage: 0);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        maintainBottomViewPadding: true,
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
+      body: Column(
+        children: [
+          Expanded(
+            child: PageView(
+              controller: _controller,
+              children: const [OnBoardingPageFirst(), SecondOnbardingPage(), ThirdOnbardingPage()],
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Padding(
+        padding: EdgeInsets.symmetric(horizontal: 5.w, vertical: 0.8.h),
+        child: SizedBox(
+          height: 6.h,
+          child: Row(
             children: [
-              Gap(3.h),
-              const JobNowText(),
-              Gap(5.h),
-              const Image(
-                image: AssetImage(kIntroJob1Image),
+              PrimaryButton(
+                text: kNext,
+                ontap: () {
+                  if (pageIndex <= 2) {
+                    setState(() {
+                      pageIndex = pageIndex + 1;
+                    });
+                    _controller.animateToPage(pageIndex, duration: Durations.medium4, curve: Curves.easeIn);
+                  }
+                },
               ),
-              Text(
-                kFindJob,
-                textAlign: TextAlign.center,
-                style: TextStyle(color: kBlackColor, fontSize: 20.sp),
-              ),
-              Gap(3.h),
-              const Companies1(),
-              Gap(1.h),
-              const Companies2(),
-              const Spacer(),
-              Padding(
-                padding: EdgeInsets.only(right: 6.0.w),
-                child: const Align(alignment: Alignment.centerRight, child: PrimaryButton(text:kNext ,)),
-              ),
-              Gap(1.h),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class OnBoardingPageFirst extends StatelessWidget {
+  const OnBoardingPageFirst({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Gap(8.h),
+          const JobNowText(),
+          Gap(8.h),
+          const Image(
+            image: AssetImage(kIntroJob1Image),
+          ),
+          Text(
+            kFindJob,
+            textAlign: TextAlign.center,
+            style: TextStyle(color: kBlackColor, fontSize: 20.sp),
+          ),
+          Gap(3.h),
+          const Companies1(),
+          Gap(1.h),
+          const Companies2(),
+          const Spacer(),
+        ],
       ),
     );
   }

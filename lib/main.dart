@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       return MaterialApp(
         title: 'JobNow',
         theme: ThemeData(useMaterial3: true, textTheme: GoogleFonts.averiaLibreTextTheme(), scaffoldBackgroundColor: Colors.white),
-        home: const ThirdOnbardingPage(),
+        home: const OnbardingPage(),
       );
     });
   }

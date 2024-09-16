@@ -11,23 +11,21 @@ class SecondOnbardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        children: [
-          Gap(3.h),
-          const JobNowText(),
-          Gap(5.h),
-          const Image(
-            image: AssetImage(kIntroJob2Image),
-          ),
-          Text(
-            kTrackJobText,
-            textAlign: TextAlign.center,
-            style: TextStyle(color: kBlackColor, fontSize: 20.sp),
-          ),
-          Gap(3.h),
-        ],
-      ),
+    return Column(
+      children: [
+        Gap(8.h),
+        const JobNowText(),
+        Gap(8.h),
+        const Image(
+          image: AssetImage(kIntroJob2Image),
+        ),
+        Text(
+          kTrackJobText,
+          textAlign: TextAlign.center,
+          style: TextStyle(color: kBlackColor, fontSize: 20.sp),
+        ),
+        Gap(3.h),
+      ],
     );
   }
 }
