@@ -5,6 +5,7 @@ import 'package:job_now/constants/app_strings.dart';
 import 'package:job_now/constants/colors.dart';
 import 'package:job_now/components/job_now_text.dart';
 import 'package:job_now/components/primary_button.dart';
+import 'package:job_now/view/auth/auth_page.dart';
 import 'package:job_now/view/onbarding/second_onbarding_page.dart';
 import 'package:job_now/view/onbarding/third_onbarding_page.dart';
 import 'package:sizer/sizer.dart';
@@ -71,12 +72,9 @@ class _OnbardingPageState extends State<OnbardingPage> {
                         fontColor: kBlackColor,
                         bgColor: kLightGrey,
                         ontap: () {
-                          if (pageIndex <= 2 && pageIndex != 0) {
-                            setState(() {
-                              pageIndex = pageIndex - 1;
-                            });
-                            _controller.animateToPage(pageIndex, duration: Durations.medium4, curve: Curves.easeIn);
-                          }
+                          Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => const AuthPage(),
+                          ));
                         },
                       )
                     : PrimaryButton(
