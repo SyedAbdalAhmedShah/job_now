@@ -3,8 +3,8 @@ import 'package:gap/gap.dart';
 import 'package:job_now/constants/app_assets.dart';
 import 'package:job_now/constants/app_strings.dart';
 import 'package:job_now/constants/colors.dart';
-import 'package:job_now/view/components/job_now_text.dart';
-import 'package:job_now/view/components/primary_button.dart';
+import 'package:job_now/components/job_now_text.dart';
+import 'package:job_now/components/primary_button.dart';
 import 'package:sizer/sizer.dart';
 
 class ThirdOnbardingPage extends StatelessWidget {
