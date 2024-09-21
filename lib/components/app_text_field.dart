@@ -1,9 +1,9 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:job_now/components/style_handler.dart';
 import 'package:job_now/constants/colors.dart';
 import 'package:sizer/sizer.dart';
+
+
 
 class AppTextField extends StatelessWidget {
   final String hint;
